@@ -5,7 +5,7 @@ import random
 import numpy as np
 # Parameters
 sphere_radius = 2.0
-arrow_thickness_list = [0.02,0.03,0.04,0.05,0.04,0.03,0.02]
+arrow_thickness_list = np.array([0.02,0.03,0.04,0.05,0.04,0.03,0.02])*1.5
 theta_list = np.array([-0.5,-0.3,-0.15,0,0.15,0.3,0.5])*1.5 - 1
 velocity_arrow_length_list = theta_list - np.mean(theta_list) + 1 
 velocity_arrow_length_list = velocity_arrow_length_list / np.mean(velocity_arrow_length_list) * 0.5
@@ -354,7 +354,7 @@ def create_curved_arrow(start_theta, end_theta, radius, thickness=0.02, name="Cu
     
     # Create arrow tip (cone) at the end
     end_angle = start_theta + angle_diff
-    tip_direction = mathutils.Vector((-math.sin(end_angle), math.cos(end_angle), 0))
+    tip_direction = mathutils.Vector((math.sin(end_angle), -math.cos(end_angle), 0))  # Reversed direction
     cone_length = thickness * 8
     bpy.ops.mesh.primitive_cone_add(
         radius1=thickness * 3,
@@ -421,17 +421,17 @@ axes = []
 
 # X-axis (red)
 x_arrow = create_axis_arrow((0,0,0), (axis_length,0,0), (0.2,0.2,0.2), "X_Axis")
-x_label = create_text_label("x", (axis_length + 0.2, 0, 0))
+x_label = create_text_label("x", (axis_length + 0.2, 0, 0), size=0.5)
 axes.extend([*x_arrow, x_label])
 
 # Y-axis (green)
 y_arrow = create_axis_arrow((0,0,0), (0,axis_length,0), (0.2,0.2,0.2), "Y_Axis")
-y_label = create_text_label("y", (0, axis_length + 0.2, 0))
+y_label = create_text_label("y", (0, axis_length + 0.2, 0), size=0.5)
 axes.extend([*y_arrow, y_label])
 
 # Z-axis (blue)
 z_arrow = create_axis_arrow((0,0,0), (0,0,axis_length), (0.2,0.2,0.2), "Z_Axis")
-z_label = create_text_label("z", (0, 0, axis_length + 0.2))
+z_label = create_text_label("z", (0, 0, axis_length + 0.2), size=0.5)
 axes.extend([*z_arrow, z_label])
 
 # Calculate positions of first and last arrow tips
