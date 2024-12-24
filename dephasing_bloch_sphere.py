@@ -292,7 +292,7 @@ def create_text_label(text, location, size=0.2):
     return text_obj
 
 # Function to create a curved arrow between two points
-def create_curved_arrow(start_theta, end_theta, radius, thickness=0.02, name="CurvedArrow", num_points=4):
+def create_curved_arrow(start_theta, end_theta, radius, thickness=0.02, name="CurvedArrow", num_points=24):
     # Create a curved path using a Bezier curve
     curve_data = bpy.data.curves.new(name=name, type='CURVE')
     curve_data.dimensions = '3D'
@@ -336,7 +336,7 @@ def create_curved_arrow(start_theta, end_theta, radius, thickness=0.02, name="Cu
         # Calculate tangent direction for smooth curve
         tangent_x = -radius * math.sin(angle)
         tangent_y = radius * math.cos(angle)
-        tangent_length = 0.2 * radius  # Control handle length
+        tangent_length = 0.005* radius  # Control handle length
         
         # Set handle positions for smooth curve
         point.handle_left = (
