@@ -175,8 +175,8 @@ print("Environment light set to subtle ambient with a directional light for shad
 
 
 # Define camera position and rotation based on provided parameters
-camera_location = (97.493, -68.423, 36.22)  # Location from the image
-camera_rotation = (50,0,0)  # Rotation in degrees from the image
+camera_location = (20, 20, 20)  # Location from the image
+camera_rotation = (50,0,50)  # Rotation in degrees from the image
 
 # Convert rotation from degrees to radians (Blender uses radians for rotation)
 from math import radians
