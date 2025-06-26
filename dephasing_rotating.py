@@ -22,7 +22,7 @@ num_frames = 60
 
 # Set output folder for the animation frames
 # (Blender will automatically append frame numbers when doing animation renders)
-output_file_path = "/Users/jiakai/Desktop/bloch_animation/"  # No extension here, Blender appends frame#.ext
+output_file_path = "/Users/jiakaiwang/Desktop/bloch_animation/"  # No extension here, Blender appends frame#.ext
 
 # Seed for reproducibility
 random.seed(42)
