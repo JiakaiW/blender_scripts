@@ -1,7 +1,7 @@
 import sys
 import os
 
-project_root = "/Users/jiakaiwang/Documents/Github/CoupledQuantumSystems"
+project_root = "/Users/jiakaiwang/Documents/Github/blender_scripts"
 if project_root not in sys.path:
     sys.path.append(project_root)
 
